@@ -37,13 +37,28 @@ class StandardDialog(QDialog):
         
         self.setLayout(layout)
         
+        self.connect(filePushButton, SIGNAL("clicked()"),self.openFile)
+        self.connect(colorPushButton,SIGNAL("clicked()"),self.openColor)
+        self.connect(fontPushButton,SIGNAL("clicked()"),self.openFont)
+ 
+    def openFile(self):
         
+        s = QFileDialog.getOpenFileName(self,"Open file dialog","./","Python files(*.py)")
         
+        self.fileLineEdit.setTabOrder(str(s))
+
+    def openColor(self):
         
-        
-        
-        
-        
+        c = QColorDialog.getColor(Qt.blue)
+        if c.isvalid():
+            self.colorFrame.setPalette(QPalette(c))
+            
+    def openFont(self):
+        f,ok = QFontDialog.getFont()
+        if ok:
+            self.fontLineEdit.setFont(f)
+            
+
 app = QApplication(sys.argv)
 form = StandardDialog()
 form.show()
