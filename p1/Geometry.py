@@ -67,6 +67,31 @@ class Geometry(QDialog):
         
         self.xLabel.setText(temp.setNum(self.x(), base=10))
         self.yLabel.setText(temp.setNum(self.y(), base=10))
+        self.frameGeoLabel.setText(temp.setNum(self.frameGeometry().x())+','+
+                                   temp.setNum(self.frameGeometry().y())+','+
+                                   temp.setNum(self.frameGeometry().width())+','+
+                                   temp.setNum(self.frameGeometry().height())
+                                   )
+        self.posLabel.setText(temp.setNum(self.pos().x())+','+
+                              temp.setNum(self.pos().y())
+                              )
+        
+        self.geoLabel.setText(temp.setNum(self.geometry().x())+','+
+                              temp.setNum(self.geometry().y())+','+
+                              temp.setNum(self.geometry().width())+','+
+                              temp.setNum(self.geometry().height())
+                              )
+        self.widthLabel.setText(temp.setNum(self.width()))
+        self.heightLabel.setText(temp.setNum(self.height()))
+        self.rectLabel.setText(temp.setNum(self.rect().x())+','+
+                               temp.setNum(self.rect().y())+','+
+                               temp.setNum(self.rect().width())+','+
+                               temp.setNum(self.rect().height())
+                               )
+        self.sizeLabel.setText(temp.setNum(self.size().width())+','+
+                               temp.setNum(self.size().height())
+                               )
+                            
         
 app = QApplication(sys.argv)
 form = Geometry()
